@@ -45,13 +45,13 @@ ARCHIVER = ar -ruv
 #-------------------------------------------------------------------------
 MPI    = -DMPI
 OMP    = #-qopenmp
-FPP    = -fpp
+FPP    = -cpp
 CPP    = $(FPP) $(MPI) $(OMP)
 
 # Machine tuning options
 #-------------------------------------------------------------------------
-CHECK  = -nogen-interfaces -warn all #-check all -traceback -g
-MTUNE  = -O3 -xHost
+CHECK  = #-nogen-interfaces -warn all #-check all -traceback -g
+MTUNE  = -O2 # -O3 -xHost
 
 # Flags for fortran compiler and linker
 #-------------------------------------------------------------------------
@@ -60,4 +60,4 @@ LFLAGS = $(OMP)
 
 # External linear algebra library
 #-------------------------------------------------------------------------
-LIBS   = -L/opt/intel/mkl/lib -lmkl_core -lmkl_sequential -lmkl_rt
+LIBS   = -lopenblas #-L/opt/intel/mkl/lib -lmkl_core -lmkl_sequential -lmkl_rt
